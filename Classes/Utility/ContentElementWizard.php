@@ -14,7 +14,7 @@ class user_events_Utility_ContentElementWizard {
 			'icon' => t3lib_extMgm::extRelPath('user_events') . 'Resources/Public/Images/ce_wiz.gif',
 			'title' => $GLOBALS['LANG']->getLLL('pi1_title', $LL),
 			'description' => $GLOBALS['LANG']->getLLL('pi1_plus_wiz_description', $LL),
-			'params' => '&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=user_events_Event'
+			'params' => '&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=user_events_EventController'
 		);
 
 		return $wizardItems;
@@ -26,7 +26,7 @@ class user_events_Utility_ContentElementWizard {
 	 * @return array The array with language labels
 	 */
 	protected function includeLocalLang() {
-		$llFile = t3lib_extMgm::extPath('user_events') . 'Resources/Private/Language/Resources/Private/Language/ContentElementWizard.xml';
+		$llFile = t3lib_extMgm::extPath('user_events') . 'Resources/Private/Language/ContentElementWizard.xml';
 		$version = class_exists('t3lib_utility_VersionNumber')
 				? t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version)
 				: t3lib_div::int_from_ver(TYPO3_version);

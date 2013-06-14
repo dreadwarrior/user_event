@@ -49,17 +49,17 @@ $TCA['user_events_categories'] = array(
 
 t3lib_div::loadTCA('tt_content');
 //$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pi1'] = 'layout,select_key';
-$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_Event'] = 'layout,select_key,pages,recursive';
+$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_EventController'] = 'layout,select_key,pages,recursive';
 
 // enable flexform functionality
-$TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_Event']='pi_flexform';
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_EventController']='pi_flexform';
 
 // add flexform XML
-t3lib_extMgm::addPiFlexFormValue($_EXTKEY . '_Event', 'FILE:EXT:' . $_EXTKEY . '/Configuration/Flexform/Event.xml');
+t3lib_extMgm::addPiFlexFormValue($_EXTKEY . '_EventController', 'FILE:EXT:' . $_EXTKEY . '/Configuration/Flexform/Event.xml');
 
 t3lib_extMgm::addPlugin(array(
-	'LLL:EXT:user_events/locallang_db.xml:tt_content.list_type_pi1',
-	$_EXTKEY . '_Event',
+	'LLL:EXT:user_events/Resources/Private/Language/Tca.xml:tt_content.list_type_pi1',
+	$_EXTKEY . '_EventController',
 	t3lib_extMgm::extRelPath($_EXTKEY) . 'ext_icon.gif'
 ),'list_type');
 

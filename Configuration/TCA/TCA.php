@@ -10,7 +10,7 @@ $TCA['user_events_events'] = array(
 	),
 	'feInterface' => $TCA['user_events_events']['feInterface'],
 	'columns' => array(
-		't3ver_label' => array(		
+		't3ver_label' => array(
 			'label'  => 'LLL:EXT:lang/locallang_general.xml:LGL.versionLabel',
 			'config' => array(
 				'type' => 'input',
@@ -18,7 +18,7 @@ $TCA['user_events_events'] = array(
 				'max'  => '30',
 			)
 		),
-		'sys_language_uid' => array(		
+		'sys_language_uid' => array(
 			'exclude' => 1,
 			'label'  => 'LLL:EXT:lang/locallang_general.xml:LGL.language',
 			'config' => array(
@@ -31,7 +31,7 @@ $TCA['user_events_events'] = array(
 				)
 			)
 		),
-		'l10n_parent' => array(		
+		'l10n_parent' => array(
 			'displayCond' => 'FIELD:sys_language_uid:>:0',
 			'exclude'     => 1,
 			'label'       => 'LLL:EXT:lang/locallang_general.xml:LGL.l18n_parent',
@@ -44,12 +44,12 @@ $TCA['user_events_events'] = array(
 				'foreign_table_where' => 'AND user_events_events.pid=###CURRENT_PID### AND user_events_events.sys_language_uid IN (-1,0)',
 			)
 		),
-		'l10n_diffsource' => array(		
+		'l10n_diffsource' => array(
 			'config' => array(
 				'type' => 'passthrough'
 			)
 		),
-		'hidden' => array(		
+		'hidden' => array(
 			'exclude' => 1,
 			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
 			'config'  => array(
@@ -57,7 +57,7 @@ $TCA['user_events_events'] = array(
 				'default' => '0'
 			)
 		),
-		'starttime' => array(		
+		'starttime' => array(
 			'exclude' => 1,
 			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.starttime',
 			'config'  => array(
@@ -69,7 +69,7 @@ $TCA['user_events_events'] = array(
 				'checkbox' => '0'
 			)
 		),
-		'endtime' => array(		
+		'endtime' => array(
 			'exclude' => 1,
 			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.endtime',
 			'config'  => array(
@@ -85,7 +85,7 @@ $TCA['user_events_events'] = array(
 				)
 			)
 		),
-		'fe_group' => array(		
+		'fe_group' => array(
 			'exclude' => 1,
 			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.fe_group',
 			'config'  => array(
@@ -99,44 +99,44 @@ $TCA['user_events_events'] = array(
 				'foreign_table' => 'fe_groups'
 			)
 		),
-		'eventdate' => array(		
-			'exclude' => 0,		
-			'label' => 'LLL:EXT:user_events/locallang_db.xml:user_events_events.eventdate',		
+		'eventdate' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:user_events/Resources/Private/Language/Tca.xml:user_events_events.eventdate',
 			'config' => array(
-				'type' => 'input',	
-				'size' => '30',	
-				'checkbox' => '0',	
+				'type' => 'input',
+				'size' => '30',
+				'checkbox' => '0',
 				'eval' => 'required,datetime',
 			)
 		),
-		'title' => array(		
-			'exclude' => 0,		
-			'label' => 'LLL:EXT:user_events/locallang_db.xml:user_events_events.title',		
+		'title' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:user_events/Resources/Private/Language/Tca.xml:user_events_events.title',
 			'config' => array(
-				'type' => 'input',	
-				'size' => '30',	
+				'type' => 'input',
+				'size' => '30',
 				'eval' => 'required',
 			)
 		),
-		'subtitle' => array(		
-			'exclude' => 1,		
-			'label' => 'LLL:EXT:user_events/locallang_db.xml:user_events_events.subtitle',		
+		'subtitle' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:user_events/Resources/Private/Language/Tca.xml:user_events_events.subtitle',
 			'config' => array(
-				'type' => 'input',	
+				'type' => 'input',
 				'size' => '30',
 			)
 		),
-		'categories' => array(		
-			'exclude' => 1,		
-			'label' => 'LLL:EXT:user_events/locallang_db.xml:user_events_events.categories',		
+		'categories' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:user_events/Resources/Private/Language/Tca.xml:user_events_events.categories',
 			'config' => array(
-				'type' => 'select',	
-				'foreign_table' => 'user_events_categories',	
-				'foreign_table_where' => 'AND user_events_categories.pid=###STORAGE_PID### AND user_events_categories.sys_language_uid=###REC_FIELD_sys_language_uid### ORDER BY user_events_categories.uid',	
-				'size' => 5,	
+				'type' => 'select',
+				'foreign_table' => 'user_events_categories',
+				'foreign_table_where' => 'AND user_events_categories.pid=###STORAGE_PID### AND user_events_categories.sys_language_uid=###REC_FIELD_sys_language_uid### ORDER BY user_events_categories.uid',
+				'size' => 5,
 				'minitems' => 0,
-				'maxitems' => 10,	
-				"MM" => "user_events_events_categories_mm",	
+				'maxitems' => 10,
+				"MM" => "user_events_events_categories_mm",
 				'wizards' => array(
 					'_PADDING'  => 2,
 					'_VERTICAL' => 1,
@@ -172,30 +172,30 @@ $TCA['user_events_events'] = array(
 				),
 			)
 		),
-		'location' => array(		
-			'exclude' => 0,		
-			'label' => 'LLL:EXT:user_events/locallang_db.xml:user_events_events.location',		
+		'location' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:user_events/Resources/Private/Language/Tca.xml:user_events_events.location',
 			'config' => array(
-				'type' => 'group',	
-				'internal_type' => 'db',	
-				'allowed' => 'tt_address',	
-				'size' => 1,	
+				'type' => 'group',
+				'internal_type' => 'db',
+				'allowed' => 'tt_address',
+				'size' => 1,
 				'minitems' => 0,
 				'maxitems' => 1,
 			)
 		),
-		'shorttext' => array(		
-			'exclude' => 1,		
-			'label' => 'LLL:EXT:user_events/locallang_db.xml:user_events_events.shorttext',		
+		'shorttext' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:user_events/Resources/Private/Language/Tca.xml:user_events_events.shorttext',
 			'config' => array(
 				'type' => 'text',
-				'cols' => '30',	
+				'cols' => '30',
 				'rows' => '5',
 			)
 		),
-		'bodytext' => array(		
-			'exclude' => 0,		
-			'label' => 'LLL:EXT:user_events/locallang_db.xml:user_events_events.bodytext',		
+		'bodytext' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:user_events/Resources/Private/Language/Tca.xml:user_events_events.bodytext',
 			'config' => array(
 				'type' => 'text',
 				'cols' => '30',
@@ -213,58 +213,58 @@ $TCA['user_events_events'] = array(
 				),
 			)
 		),
-		'image' => array(		
-			'exclude' => 1,		
-			'label' => 'LLL:EXT:user_events/locallang_db.xml:user_events_events.image',		
+		'image' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:user_events/Resources/Private/Language/Tca.xml:user_events_events.image',
 			'config' => array(
 				'type' => 'group',
 				'internal_type' => 'file',
-				'allowed' => 'gif,png,jpeg,jpg',	
-				'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],	
+				'allowed' => 'gif,png,jpeg,jpg',
+				'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
 				'uploadfolder' => 'uploads/tx_userevents',
-				'show_thumbs' => 1,	
-				'size' => 1,	
+				'show_thumbs' => 1,
+				'size' => 1,
 				'minitems' => 0,
 				'maxitems' => 1,
 			)
 		),
-		'alttext' => array(		
-			'exclude' => 1,		
-			'label' => 'LLL:EXT:user_events/locallang_db.xml:user_events_events.alttext',		
+		'alttext' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:user_events/Resources/Private/Language/Tca.xml:user_events_events.alttext',
 			'config' => array(
-				'type' => 'input',	
+				'type' => 'input',
 				'size' => '30',
 			)
 		),
-		'titletext' => array(		
-			'exclude' => 1,		
-			'label' => 'LLL:EXT:user_events/locallang_db.xml:user_events_events.titletext',		
+		'titletext' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:user_events/Resources/Private/Language/Tca.xml:user_events_events.titletext',
 			'config' => array(
-				'type' => 'input',	
+				'type' => 'input',
 				'size' => '30',
 			)
 		),
-		'links' => array(		
-			'exclude' => 1,		
-			'label' => 'LLL:EXT:user_events/locallang_db.xml:user_events_events.links',		
+		'links' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:user_events/Resources/Private/Language/Tca.xml:user_events_events.links',
 			'config' => array(
 				'type' => 'text',
 				'wrap' => 'OFF',
-				'cols' => '30',	
+				'cols' => '30',
 				'rows' => '6',
 			)
 		),
-		'documents' => array(		
-			'exclude' => 1,		
-			'label' => 'LLL:EXT:user_events/locallang_db.xml:user_events_events.documents',		
+		'documents' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:user_events/Resources/Private/Language/Tca.xml:user_events_events.documents',
 			'config' => array(
 				'type' => 'group',
 				'internal_type' => 'file',
-				'allowed' => '',	
-				'disallowed' => 'php,php3',	
-				'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],	
+				'allowed' => '',
+				'disallowed' => 'php,php3',
+				'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
 				'uploadfolder' => 'uploads/tx_userevents',
-				'size' => 6,	
+				'size' => 6,
 				'minitems' => 0,
 				'maxitems' => 6,
 			)
@@ -287,7 +287,7 @@ $TCA['user_events_categories'] = array(
 	),
 	'feInterface' => $TCA['user_events_categories']['feInterface'],
 	'columns' => array(
-		't3ver_label' => array(		
+		't3ver_label' => array(
 			'label'  => 'LLL:EXT:lang/locallang_general.xml:LGL.versionLabel',
 			'config' => array(
 				'type' => 'input',
@@ -295,7 +295,7 @@ $TCA['user_events_categories'] = array(
 				'max'  => '30',
 			)
 		),
-		'hidden' => array(		
+		'hidden' => array(
 			'exclude' => 1,
 			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
 			'config'  => array(
@@ -303,12 +303,12 @@ $TCA['user_events_categories'] = array(
 				'default' => '0'
 			)
 		),
-		'title' => array(		
-			'exclude' => 0,		
-			'label' => 'LLL:EXT:user_events/locallang_db.xml:user_events_categories.title',		
+		'title' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:user_events/Resources/Private/Language/Tca.xml:user_events_categories.title',
 			'config' => array(
-				'type' => 'input',	
-				'size' => '30',	
+				'type' => 'input',
+				'size' => '30',
 				'eval' => 'required',
 			)
 		),

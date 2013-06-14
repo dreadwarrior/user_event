@@ -4,7 +4,7 @@ if (!defined('TYPO3_MODE')) {
 }
 $TCA['user_events_events'] = array(
 	'ctrl' => array(
-		'title'     => 'LLL:EXT:user_events/locallang_db.xml:user_events_events',
+		'title'     => 'LLL:EXT:user_events/Resources/Private/Language/Tca.xml:user_events_events',
 		'label'     => 'title',
 		'tstamp'    => 'tstamp',
 		'crdate'    => 'crdate',
@@ -22,14 +22,14 @@ $TCA['user_events_events'] = array(
 			'endtime' => 'endtime',
 			'fe_group' => 'fe_group',
 		),
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'tca.php',
-		'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY) . 'icon_user_events_events.gif',
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/TCA.php',
+		'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Images/tca-events.gif',
 	),
 );
 
 $TCA['user_events_categories'] = array(
 	'ctrl' => array(
-		'title'     => 'LLL:EXT:user_events/locallang_db.xml:user_events_categories',
+		'title'     => 'LLL:EXT:user_events/Resources/Private/Language/Tca.xml:user_events_categories',
 		'label'     => 'title',
 		'tstamp'    => 'tstamp',
 		'crdate'    => 'crdate',
@@ -41,25 +41,25 @@ $TCA['user_events_categories'] = array(
 		'enablecolumns' => array(
 			'disabled' => 'hidden',
 		),
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'tca.php',
-		'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY) . 'icon_user_events_categories.gif',
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/TCA.php',
+		'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Images/tca-categories.gif',
 	),
 );
 
 
 t3lib_div::loadTCA('tt_content');
 //$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pi1'] = 'layout,select_key';
-$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pi1'] = 'layout,select_key,pages,recursive';
+$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_Event'] = 'layout,select_key,pages,recursive';
 
 // enable flexform functionality
-$TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi1']='pi_flexform';
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_Event']='pi_flexform';
 
 // add flexform XML
-t3lib_extMgm::addPiFlexFormValue($_EXTKEY . '_pi1', 'FILE:EXT:' . $_EXTKEY . '/pi1/flexform_ds.xml');
+t3lib_extMgm::addPiFlexFormValue($_EXTKEY . '_Event', 'FILE:EXT:' . $_EXTKEY . '/Configuration/Flexform/Event.xml');
 
 t3lib_extMgm::addPlugin(array(
 	'LLL:EXT:user_events/locallang_db.xml:tt_content.list_type_pi1',
-	$_EXTKEY . '_pi1',
+	$_EXTKEY . '_Event',
 	t3lib_extMgm::extRelPath($_EXTKEY) . 'ext_icon.gif'
 ),'list_type');
 

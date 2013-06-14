@@ -19,7 +19,7 @@ class user_events_EventController extends tslib_pibase {
 	 *
 	 * @var string
 	 */
-	public $scriptRelPath = 'pi1/class.user_events_pi1.php';
+	public $scriptRelPath = 'Resources/Private/Language/Event.xml';
 
 	/**
 	 * The extension key.

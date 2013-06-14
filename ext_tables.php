@@ -4,15 +4,15 @@ if (!defined('TYPO3_MODE')) {
 }
 $TCA['user_events_events'] = array(
 	'ctrl' => array(
-		'title'     => 'LLL:EXT:user_events/Resources/Private/Language/Tca.xml:user_events_events',
-		'label'     => 'title',
-		'tstamp'    => 'tstamp',
-		'crdate'    => 'crdate',
+		'title' => 'LLL:EXT:user_events/Resources/Private/Language/Tca.xml:user_events_events',
+		'label' => 'title',
+		'tstamp' => 'tstamp',
+		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
 		'versioningWS' => TRUE,
 		'origUid' => 't3_origuid',
-		'languageField'            => 'sys_language_uid',
-		'transOrigPointerField'    => 'l10n_parent',
+		'languageField' => 'sys_language_uid',
+		'transOrigPointerField' => 'l10n_parent',
 		'transOrigDiffSourceField' => 'l10n_diffsource',
 		'default_sortby' => 'ORDER BY eventdate',
 		'delete' => 'deleted',
@@ -23,16 +23,16 @@ $TCA['user_events_events'] = array(
 			'fe_group' => 'fe_group',
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/TCA.php',
-		'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Images/tca-events.gif',
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Images/tca-events.gif',
 	),
 );
 
 $TCA['user_events_categories'] = array(
 	'ctrl' => array(
-		'title'     => 'LLL:EXT:user_events/Resources/Private/Language/Tca.xml:user_events_categories',
-		'label'     => 'title',
-		'tstamp'    => 'tstamp',
-		'crdate'    => 'crdate',
+		'title' => 'LLL:EXT:user_events/Resources/Private/Language/Tca.xml:user_events_categories',
+		'label' => 'title',
+		'tstamp' => 'tstamp',
+		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
 		'versioningWS' => TRUE,
 		'origUid' => 't3_origuid',
@@ -42,7 +42,7 @@ $TCA['user_events_categories'] = array(
 			'disabled' => 'hidden',
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/TCA.php',
-		'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Images/tca-categories.gif',
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Images/tca-categories.gif',
 	),
 );
 

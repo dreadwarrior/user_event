@@ -69,7 +69,7 @@ abstract class user_events_View_PhpView extends user_events_Utility_PibaseMethod
 		// EventDetail
 		$template = str_replace('View', '', $classNameCanonical);
 
-		$templatePath = t3lib_extMgm::extPath('user_events', '/Resources/Private/Templates/' . $template '.php')
+		$templatePath = t3lib_extMgm::extPath('user_events', '/Resources/Private/Templates/' . $template '.php');
 
 		return $templatePath;
 		

@@ -47,7 +47,7 @@ abstract class user_events_View_PhpView extends user_events_Utility_PibaseMethod
 		$this->templateVariables[$templateVariableKey] = $templateVariableValue;
 	}
 
-	public final function render() {
+	public final function render($subpartKey = '') {
 		extract($this->templateVariables);
 
 		ob_start();

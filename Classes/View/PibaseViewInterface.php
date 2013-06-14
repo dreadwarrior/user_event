@@ -4,6 +4,6 @@ interface user_events_View_PibaseViewInterface {
 
 	public function setViewConf(array $conf);
 
-	public function render($subpartKey);
+	public function render($subpartKey = '');
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-class user_events_ContentElementWizard {
+class user_events_Utility_ContentElementWizard {
 
 	/**
 	 * Processing the wizard items array

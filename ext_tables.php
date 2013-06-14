@@ -68,5 +68,5 @@ if (TYPO3_MODE === 'BE') {
 	$TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['user_events_pi1_wizicon'] = t3lib_extMgm::extPath($_EXTKEY) . 'pi1/class.user_events_pi1_wizicon.php';
 }
 
-t3lib_extMgm::addStaticFile($_EXTKEY,'static/eventcalendar/', 'Eventcalendar');
+t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript/Static/', 'Eventcalendar');
 ?>

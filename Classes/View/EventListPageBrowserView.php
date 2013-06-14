@@ -3,7 +3,7 @@ require_once(t3lib_extMgm::extPath('user_events') . '/Classes/View/MarkerView.ph
 
 class user_events_View_EventListPageBrowserView extends user_events_View_MarkerView {
 
-	public function render($subpartKey) {
+	public function render($subpartKey = '') {
 		$viewTemplate = $this->viewManager->getSubpartFromTemplateOrStack($subpartKey, 'templateCode');
 
 		$this->setPluginInternalConfigurationArray();

@@ -9,7 +9,7 @@ class user_events_View_EventListView extends user_events_View_SubpartView {
 
 	protected $subpart = 'LIST';
 
-	public function render($subpartKey) {
+	public function render($subpartKey = '') {
 		$this->viewManager->getSubpartFromTemplateOrStack($subpartKey, 'templateCode');
 
 		$this->renderEventRowView();

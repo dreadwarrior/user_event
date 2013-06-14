@@ -17,7 +17,7 @@ class user_events_View_EventListRowView extends user_events_View_SubpartView {
 		$this->eventRepository = $repository;
 	}
 
-	public function render($subpartKey) {
+	public function render($subpartKey = '') {
 		$viewTemplate = $this->viewManager->getSubpartFromTemplateOrStack($subpartKey, 'templateCode');
 
 		$events = $this->eventRepository->getOccuringEvents();

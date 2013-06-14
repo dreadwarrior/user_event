@@ -2,7 +2,7 @@
 require_once(t3lib_extMgm::extPath('user_events') . '/Classes/View/MarkerView.php');
 
 class user_events_View_EventListSearchFormView extends user_events_View_MarkerView {
-	public function render($subpartKey) {
+	public function render($subpartKey = '') {
 		$viewTemplate = $this->viewManager->getSubpartFromTemplateOrStack($subpartKey, 'templateCode');
 
 		$_markers = array(

@@ -13,7 +13,7 @@ class user_events_View_EventListItemView extends user_events_View_MarkerView {
 		$this->event = $event;
 	}
 
-	public function render($subpartKey) {
+	public function render($subpartKey = '') {
 		$viewTemplate = $this->viewManager->getSubpartFromTemplateOrStack($subpartKey, 'LIST');
 
 		$locations = $this->pluginInstance->getLocations();

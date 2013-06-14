@@ -3,7 +3,7 @@ require_once t3lib_extMgm::extPath('user_events') . '/Classes/Model/EventCategor
 
 require_once(t3lib_extMgm::extPath('user_events') . '/Classes/View/PhpView.php');
 
-class user_events_View_EventDetailView extends user_events_View_MarkerView {
+class user_events_View_EventDetailView extends user_events_View_PhpView {
 
 	/**
 	 *

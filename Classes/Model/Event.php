@@ -137,7 +137,7 @@ class user_events_Model_Event extends user_events_Model_PibaseDomainObject {
 		return $this->documents;
 	}
 
-	public funciton hasDocuments() {
+	public function hasDocuments() {
 		return '' !== $this->documents;
 	}
 }

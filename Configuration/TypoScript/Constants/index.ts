@@ -1,5 +1,5 @@
 # Constants
-plugin.user_events_pi1 {
+plugin.user_events_Event {
 	#cat=PLUGIN.EVENTCALENDAR/file/z; type=file[html,htm,tmpl,txt]; label=Template file:HTML template file for display of events. See EXT:user_events/res/template.html for an example.
 	templateFile = EXT:user_events/Resources/Private/Templates/Event/template.html
 	#cat=PLUGIN.EVENTCALENDAR/others/a1; type=int+; label=Sysfolder Page ID:

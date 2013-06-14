@@ -1,5 +1,5 @@
 # Setup
-plugin.user_events_pi1 {
+plugin.user_events_Event {
 	templateFile = {$plugin.user_events_pi1.templateFile}
 	pidList = {$plugin.user_events_pi1.pidList}
 	recursive = {$plugin.user_events_pi1.recursive}

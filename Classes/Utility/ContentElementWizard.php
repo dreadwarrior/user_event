@@ -1,5 +1,5 @@
 <?php
-class user_events_pi1_wizicon {
+class user_events_ContentElementWizard {
 
 	/**
 	 * Processing the wizard items array
@@ -11,7 +11,7 @@ class user_events_pi1_wizicon {
 		$LL = $this->includeLocalLang();
 
 		$wizardItems['plugins_user_events_pi1'] = array(
-			'icon' => t3lib_extMgm::extRelPath('user_events') . 'pi1/ce_wiz.gif',
+			'icon' => t3lib_extMgm::extRelPath('user_events') . 'Resources/Public/Images/ce_wiz.gif',
 			'title' => $GLOBALS['LANG']->getLLL('pi1_title', $LL),
 			'description' => $GLOBALS['LANG']->getLLL('pi1_plus_wiz_description', $LL),
 			'params' => '&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=user_events_pi1'
@@ -44,8 +44,8 @@ class user_events_pi1_wizicon {
 
 
 
-if (defined('TYPO3_MODE') && isset($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/user_events/pi1/class.user_events_pi1_wizicon.php'])) {
-	include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/user_events/pi1/class.user_events_pi1_wizicon.php']);
+if (defined('TYPO3_MODE') && isset($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/user_events/Classes/Utility/ContentElementWizard.php'])) {
+	include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/user_events/Classes/Utility/ContentElementWizard.php']);
 }
 
 ?>

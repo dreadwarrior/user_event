@@ -1,7 +1,7 @@
 # Constants
 plugin.user_events_pi1 {
 	#cat=PLUGIN.EVENTCALENDAR/file/z; type=file[html,htm,tmpl,txt]; label=Template file:HTML template file for display of events. See EXT:user_events/res/template.html for an example.
-	templateFile = EXT:user_events/res/template.html
+	templateFile = EXT:user_events/Resources/Private/Templates/Event/template.html
 	#cat=PLUGIN.EVENTCALENDAR/others/a1; type=int+; label=Sysfolder Page ID:
 	pidList = 4
 	#cat=PLUGIN.EVENTCALENDAR/others/a2; type=options[ =0, 1 level = 1, 2 levels = 2, 3 levels = 3, 4 levels = 4, Infinite = 250]; label=Recursive:

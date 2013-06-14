@@ -5,7 +5,7 @@ require_once(t3lib_extMgm::extPath('user_events') . '/Classes/View/StackedViewMa
 require_once(t3lib_extMgm::extPath('user_events') . '/Classes/View/EventListView.php');
 require_once(t3lib_extMgm::extPath('user_events') . '/Classes/View/EventDetailView.php');
 
-class user_events_pi1 extends tslib_pibase {
+class user_events_EventController extends tslib_pibase {
 
 	/**
 	 * Same as class name
@@ -160,7 +160,7 @@ class user_events_pi1 extends tslib_pibase {
 	}
 }
 
-if (defined('TYPO3_MODE') && isset($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/user_events/pi1/class.user_events_pi1.php'])) {
-	include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/user_events/pi1/class.user_events_pi1.php']);
+if (defined('TYPO3_MODE') && isset($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/user_events/Classes/Controller/EventController.php'])) {
+	include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/user_events/Classes/Controller/EventController.php']);
 }
 ?>

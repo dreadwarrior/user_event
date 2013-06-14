@@ -25,7 +25,7 @@ t3lib_extMgm::addUserTSConfig('
 	options.saveDocNew.user_events_categories=1
 ');
 
-t3lib_extMgm::addPItoST43($_EXTKEY, 'pi1/class.user_events_pi1.php', '_pi1', 'list_type', 1);
+t3lib_extMgm::addPItoST43($_EXTKEY, 'Classes/Controller/EventController.php', '_EventController', 'list_type', 1);
 
 // $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['user_events']['getEventRecordsHook'][] = 'user_events_'
 ?>

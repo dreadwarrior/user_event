@@ -1,19 +1,19 @@
 # Setup
 plugin.user_events_EventController {
-	templateFile = {$plugin.user_events_pi1.templateFile}
-	pidList = {$plugin.user_events_pi1.pidList}
-	recursive = {$plugin.user_events_pi1.recursive}
-	locationStoragePid = {$plugin.user_events_pi1.locationStoragePid}
+	templateFile = {$plugin.user_events_EventController.templateFile}
+	pidList = {$plugin.user_events_EventController.pidList}
+	recursive = {$plugin.user_events_EventController.recursive}
+	locationStoragePid = {$plugin.user_events_EventController.locationStoragePid}
 	list {
-		maxPerPage = {$plugin.user_events_pi1.list.maxPerPage}
-		maxPages = {$plugin.user_events_pi1.list.maxPages}
+		maxPerPage = {$plugin.user_events_EventController.list.maxPerPage}
+		maxPages = {$plugin.user_events_EventController.list.maxPages}
 
 		dateStdWrap {
-			strftime = {$plugin.user_events_pi1.list.dateStdWrap.strftime}
+			strftime = {$plugin.user_events_EventController.list.dateStdWrap.strftime}
 			noTrimWrap = |<i class="icon-calendar"></i> ||
 		}
 		timeStdWrap {
-			strftime = {$plugin.user_events_pi1.list.timeStdWrap.strftime}
+			strftime = {$plugin.user_events_EventController.list.timeStdWrap.strftime}
 			noTrimWrap = |<i class="icon-time"></i> ||
 		}
 		shorttextStdWrap {
@@ -22,7 +22,7 @@ plugin.user_events_EventController {
 			crop = 200 |  … | 1
 		}
 		linkStdWrap {
-			//typolink.parameter = {$plugin.user_events_pi1.list.detailPid}
+			//typolink.parameter = {$plugin.user_events_EventController.list.detailPid}
 			noTrimWrap = || <i class="icon-chevron-right icon-white"></i>|
 		}
 		pageBrowserWrapArray {
@@ -37,11 +37,11 @@ plugin.user_events_EventController {
 	}
 	detail {
 		dateStdWrap {
-			strftime = {$plugin.user_events_pi1.detail.dateStdWrap.strftime}
+			strftime = {$plugin.user_events_EventController.detail.dateStdWrap.strftime}
 			noTrimWrap = |<i class="icon-calendar"></i> ||
 		}
 		timeStdWrap {
-			strftime = {$plugin.user_events_pi1.detail.timeStdWrap.strftime}
+			strftime = {$plugin.user_events_EventController.detail.timeStdWrap.strftime}
 			noTrimWrap = |<i class="icon-time"></i> ||
 		}
 		subtitleStdWrap {

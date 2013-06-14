@@ -50,7 +50,7 @@ class user_events_View_EventDetailView extends user_events_View_MarkerView {
 	}
 
 	protected function getDocuments() {
-		return = explode(',', $this->event->getDocuments());
+		return explode(',', $this->event->getDocuments());
 	}
 
 	protected function getCategories() {

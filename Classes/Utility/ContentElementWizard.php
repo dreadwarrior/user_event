@@ -14,7 +14,7 @@ class user_events_ContentElementWizard {
 			'icon' => t3lib_extMgm::extRelPath('user_events') . 'Resources/Public/Images/ce_wiz.gif',
 			'title' => $GLOBALS['LANG']->getLLL('pi1_title', $LL),
 			'description' => $GLOBALS['LANG']->getLLL('pi1_plus_wiz_description', $LL),
-			'params' => '&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=user_events_Event'
+			'params' => '&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=user_events_EventController'
 		);
 
 		return $wizardItems;

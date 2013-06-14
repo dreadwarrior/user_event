@@ -58,14 +58,14 @@ $TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_EventContro
 t3lib_extMgm::addPiFlexFormValue($_EXTKEY . '_EventController', 'FILE:EXT:' . $_EXTKEY . '/Configuration/Flexform/Event.xml');
 
 t3lib_extMgm::addPlugin(array(
-	'LLL:EXT:user_events/locallang_db.xml:tt_content.list_type_pi1',
+	'LLL:EXT:user_events/Resources/Private/Language/Tca.xml:tt_content.list_type_pi1',
 	$_EXTKEY . '_EventController',
 	t3lib_extMgm::extRelPath($_EXTKEY) . 'ext_icon.gif'
 ),'list_type');
 
 
 if (TYPO3_MODE === 'BE') {
-	$TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['user_events_pi1_wizicon'] = t3lib_extMgm::extPath($_EXTKEY) . 'Classes/Utility/ContentElementWizard.php';
+	$TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['user_events_ContentElementWizard'] = t3lib_extMgm::extPath($_EXTKEY) . 'Classes/Utility/ContentElementWizard.php';
 }
 
 t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript/Static/', 'Eventcalendar');

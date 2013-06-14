@@ -26,7 +26,7 @@ class user_events_ContentElementWizard {
 	 * @return array The array with language labels
 	 */
 	protected function includeLocalLang() {
-		$llFile = t3lib_extMgm::extPath('user_events') . 'Resources/Private/Language/Resources/Private/Language/ContentElementWizard.xml';
+		$llFile = t3lib_extMgm::extPath('user_events') . 'Resources/Private/Language/ContentElementWizard.xml';
 		$version = class_exists('t3lib_utility_VersionNumber')
 				? t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version)
 				: t3lib_div::int_from_ver(TYPO3_version);

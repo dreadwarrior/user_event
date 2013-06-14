@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'user_events'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="user_events_events">Event</label>
+			<label index="user_events_events.eventdate">Event Start</label>
+			<label index="user_events_events.title">Title</label>
+			<label index="user_events_events.subtitle">Subtitle</label>
+			<label index="user_events_events.categories">Event categories</label>
+			<label index="user_events_events.location">Location</label>
+			<label index="user_events_events.shorttext">Shorttext</label>
+			<label index="user_events_events.bodytext">RTE Text</label>
+			<label index="user_events_events.image">Image</label>
+			<label index="user_events_events.alttext">ALT-Text</label>
+			<label index="user_events_events.titletext">TITLE-Text</label>
+			<label index="user_events_events.links">Links</label>
+			<label index="user_events_events.documents">Documents</label>
+			<label index="user_events_categories">Event Category</label>
+			<label index="user_events_categories.title">Title</label>
+			<label index="tt_content.list_type_pi1">Event calendar</label>
+			<label index="tt_content.pi_flexform.sheet_general">General settings</label>
+			<label index="tt_content.pi_flexform.sheet_display">Display</label>
+			<label index="tt_content.pi_flexform.templateFile">Template file</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="user_events_events">Veranstaltung</label>
+			<label index="user_events_events.eventdate">Veranstaltungsbeginn</label>
+			<label index="user_events_events.title">Titel</label>
+			<label index="user_events_events.subtitle">Untertitel</label>
+			<label index="user_events_events.categories">Veranstaltungskategorien</label>
+			<label index="user_events_events.location">Ort</label>
+			<label index="user_events_events.shorttext">Teasertext</label>
+			<label index="user_events_events.bodytext">RTE Text</label>
+			<label index="user_events_events.image">Bild</label>
+			<label index="user_events_events.alttext">ALT-Text</label>
+			<label index="user_events_events.titletext">TITLE-Text</label>
+			<label index="user_events_events.links">Links</label>
+			<label index="user_events_events.documents">Dokumente</label>
+			<label index="user_events_categories">Veranstaltungskategorie</label>
+			<label index="user_events_categories.title">Titel</label>
+			<label index="tt_content.list_type_pi1">Veranstaltungskalender</label>
+			<label index="tt_content.pi_flexform.sheet_general">General settings</label>
+			<label index="tt_content.pi_flexform.sheet_display">Display</label>
+			<label index="tt_content.pi_flexform.templateFile">Template file</label>
+		</languageKey>
+	</data>
+</T3locallang>

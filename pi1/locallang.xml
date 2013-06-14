@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;user_events_pi1&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="list.more_link_text">view details</label>
+			<label index="pi_list_browseresults_first"><![CDATA[<i class="icon-fast-backward"></i> First]]></label>
+			<label index="pi_list_browseresults_prev"><![CDATA[<i class="icon-backward"></i> Previous]]></label>
+			<label index="pi_list_browseresults_page"><![CDATA[Page]]></label>
+			<label index="pi_list_browseresults_next"><![CDATA[Next <i class="icon-step-forward"></i>]]></label>
+			<label index="pi_list_browseresults_last"><![CDATA[Last <i class="icon-fast-forward"></i>]]></label>
+			<label index="pi_list_browseresults_displays"><![CDATA[Displaying events ###FROM### to ###TO### out of ###OUT_OF###]]></label>
+			<label index="search_placeholder">Search …</label>
+			<label index="search_start">Start</label>
+			<label index="search_label">Search in events</label>
+			<label index="as">as</label>
+			<label index="back">Back</label>
+			<label index="pi_detail_links_label">Links</label>
+			<label index="pi_detail_documents_label">Documents</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="list.more_link_text">Veranstaltungsdetails</label>
+			<label index="pi_list_browseresults_first"><![CDATA[<i class="icon-fast-backward"></i> Erste Seite]]></label>
+			<label index="pi_list_browseresults_prev"><![CDATA[<i class="icon-backward"></i> zurück]]></label>
+			<label index="pi_list_browseresults_page"><![CDATA[Seite]]></label>
+			<label index="pi_list_browseresults_next"><![CDATA[vor <i class="icon-step-forward"></i>]]></label>
+			<label index="pi_list_browseresults_last"><![CDATA[Letzte Seite <i class="icon-fast-forward"></i>]]></label>
+			<label index="pi_list_browseresults_displays"><![CDATA[Zeige die Veranstaltungen ###FROM### bis ###TO### von insgesamt ###OUT_OF###]]></label>
+			<label index="search_placeholder">Suchbegriff …</label>
+			<label index="search_start">Start</label>
+			<label index="search_label">Veranstaltungssuche</label>
+			<label index="as">als</label>
+			<label index="back">zurück</label>
+			<label index="pi_detail_links_label">Weiterführende Informationen</label>
+			<label index="pi_detail_documents_label">Dokumente</label>
+		</languageKey>
+	</data>
+</T3locallang>

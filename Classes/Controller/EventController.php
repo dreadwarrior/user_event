@@ -152,7 +152,7 @@ class user_events_EventController extends tslib_pibase {
 		$eventDetailView->setEvent($event);
 		$eventDetailView->setViewConf($this->conf['detail.']);
 
-		return $eventDetailView->render('SINGLE');
+		return $eventDetailView->render();
 	}
 
 	public function getLocations() {

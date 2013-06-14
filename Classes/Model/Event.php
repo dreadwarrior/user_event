@@ -83,6 +83,10 @@ class user_events_Model_Event extends user_events_Model_PibaseDomainObject {
 		return htmlspecialchars($this->subtitle);
 	}
 
+	public function hasSubtitle() {
+		return '' !== $this->subtitle;
+	}
+
 	public function getShorttextStdWrapped($conf) {
 		return $this->stdWrap($this->getShorttextHtmlEscaped(), $conf);
 	}
@@ -125,8 +129,16 @@ class user_events_Model_Event extends user_events_Model_PibaseDomainObject {
 		return $this->links;
 	}
 
+	public function hasLinks() {
+		return '' !== $this->links;
+	}
+
 	public function getDocuments() {
 		return $this->documents;
+	}
+
+	public funciton hasDocuments() {
+		return '' !== $this->documents;
 	}
 }
 ?>

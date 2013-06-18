@@ -42,7 +42,7 @@ class user_events_EventController extends user_events_Core_Controller_PibaseCont
 
 	/**
 	 *
-	 * @var user_events_View_PibaseViewInterface
+	 * @var user_events_Core_View_PibaseViewInterface
 	 */
 	protected $view = NULL;
 

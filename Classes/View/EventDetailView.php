@@ -1,9 +1,9 @@
 <?php
 require_once t3lib_extMgm::extPath('user_events') . 'Classes/Domain/Repository/EventCategoryRepository.php';
 
-require_once(t3lib_extMgm::extPath('user_events') . 'Classes/View/PhpView.php');
+require_once(t3lib_extMgm::extPath('user_events') . 'Classes/Core/View/PhpView.php');
 
-class user_events_View_EventDetailView extends user_events_View_PhpView {
+class user_events_View_EventDetailView extends user_events_Core_View_PhpView {
 
 	/**
 	 *

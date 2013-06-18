@@ -1,7 +1,7 @@
 <?php
-require_once(t3lib_extMgm::extPath('user_events') . 'Classes/View/PhpView.php');
+require_once(t3lib_extMgm::extPath('user_events') . 'Classes/Core/View/PhpView.php');
 
-class user_events_View_EventListView extends user_events_View_PhpView {
+class user_events_View_EventListView extends user_events_Core_View_PhpView {
 
 	public function assignVariables($subpartKey = '') {
 		$this->setPluginInternalConfigurationArray();

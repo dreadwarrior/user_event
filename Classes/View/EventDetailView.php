@@ -26,7 +26,7 @@ class user_events_View_EventDetailView extends user_events_View_PhpView {
 		$this->assign('event', $this->event);
 		$this->assign('location', $this->getLocation());
 		$this->assign('categories', $this->getCategories());
-		$this->assign('documents', $this->getDocuments());
+		$this->assign('documents', $this->event->getDocumentsArray());
 	}
 
 	protected function modifyPageTitle() {
@@ -53,10 +53,6 @@ class user_events_View_EventDetailView extends user_events_View_PhpView {
 	protected function getCategories() {
 		$eventCategoryRepository = new user_events_Model_EventCategoryRepository($this->pluginInstance);
 		return $this->event->getCategories($eventCategoryRepository);
-	}
-
-	protected function getDocuments() {
-		return explode(',', $this->event->getDocuments());
 	}
 }
 ?>

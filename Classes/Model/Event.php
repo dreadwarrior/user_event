@@ -137,6 +137,10 @@ class user_events_Model_Event extends user_events_Model_PibaseDomainObject {
 		return $this->documents;
 	}
 
+	public function getDocumentsArray() {
+		return explode(',', $this->documents);
+	}
+
 	public function hasDocuments() {
 		return '' !== $this->documents;
 	}

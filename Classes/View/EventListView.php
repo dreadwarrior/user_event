@@ -1,12 +1,12 @@
 <?php
-require_once(t3lib_extMgm::extPath('user_events') . '/Classes/View/PhpView.php');
+require_once(t3lib_extMgm::extPath('user_events') . 'Classes/View/PhpView.php');
 
 class user_events_View_EventListView extends user_events_View_PhpView {
 
 	public function assignVariables($subpartKey = '') {
 		$this->setPluginInternalConfigurationArray();
 
-		$eventRepository = new user_events_Model_EventRepository($this->pluginInstance);
+		$eventRepository = new user_events_Domain_Repository_EventRepository($this->pluginInstance);
 
 		$this->assign('cObj', $this->cObj);
 		$this->assign('viewConf', $this->viewConf);

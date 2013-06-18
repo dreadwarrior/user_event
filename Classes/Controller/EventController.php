@@ -1,9 +1,9 @@
 <?php
-require_once t3lib_extMgm::extPath('user_events') . '/Classes/Model/EventRepository.php';
+require_once t3lib_extMgm::extPath('user_events') . 'Classes/Domain/Repository/EventRepository.php';
 
-require_once t3lib_extMgm::extPath('user_events') . '/Classes/Controller/PibaseController.php';
-require_once t3lib_extMgm::extPath('user_events') . '/Classes/View/EventListView.php';
-require_once t3lib_extMgm::extPath('user_events') . '/Classes/View/EventDetailView.php';
+require_once t3lib_extMgm::extPath('user_events') . 'Classes/Controller/PibaseController.php';
+require_once t3lib_extMgm::extPath('user_events') . 'Classes/View/EventListView.php';
+require_once t3lib_extMgm::extPath('user_events') . 'Classes/View/EventDetailView.php';
 
 class user_events_EventController extends user_events_PibaseController {
 
@@ -125,7 +125,7 @@ class user_events_EventController extends user_events_PibaseController {
 	protected function actionDetail() {
 		$eventUid = intval($this->piVars['showUid']);
 
-		$eventRepository = new user_events_Model_EventRepository($this);
+		$eventRepository = new user_events_Domain_Repository_EventRepository($this);
 		$event = $eventRepository->getEventById($eventUid);
 
 		$this->view = new user_events_View_EventDetailView($this);

@@ -1,9 +1,9 @@
 <?php
-require_once t3lib_extMgm::extPath('user_events') . '/Classes/Model/PibaseRepository.php';
+require_once t3lib_extMgm::extPath('user_events') . '/Classes/Persistence/PibaseRepository.php';
 
-require_once t3lib_extMgm::extPath('user_events') . '/Classes/Model/EventCategory.php';
+require_once t3lib_extMgm::extPath('user_events') . '/Classes/Domain/Model/EventCategory.php';
 
-class user_events_Model_EventCategoryRepository extends user_events_Model_PibaseRepository {
+class user_events_Domain_Repository_EventCategoryRepository extends user_events_Persistence_PibaseRepository {
 
 	protected $tableName = 'user_events_categories';
 
@@ -30,7 +30,7 @@ class user_events_Model_EventCategoryRepository extends user_events_Model_Pibase
 		$categories = array();
 		
 		while ($row = $this->database->sql_fetch_assoc($resultRessource)) {
-			$category = new user_events_Model_EventCategory($row);
+			$category = new user_events_Domain_Model_EventCategory($row);
 
 			$category->injectContentObject($this->pluginInstance->cObj);
 

@@ -1,7 +1,7 @@
 <?php
-require_once t3lib_extMgm::extPath('user_events') . '/Classes/Model/EventCategoryRepository.php';
+require_once t3lib_extMgm::extPath('user_events') . 'Classes/Domain/Repository/EventCategoryRepository.php';
 
-require_once(t3lib_extMgm::extPath('user_events') . '/Classes/View/PhpView.php');
+require_once(t3lib_extMgm::extPath('user_events') . 'Classes/View/PhpView.php');
 
 class user_events_View_EventDetailView extends user_events_View_PhpView {
 
@@ -11,7 +11,7 @@ class user_events_View_EventDetailView extends user_events_View_PhpView {
 	 */
 	protected $event;
 
-	public function setEvent(user_events_Model_Event $event) {
+	public function setEvent(user_events_Domain_Model_Event $event) {
 		$this->event = $event;
 	}
 
@@ -51,7 +51,7 @@ class user_events_View_EventDetailView extends user_events_View_PhpView {
 	}
 
 	protected function getCategories() {
-		$eventCategoryRepository = new user_events_Model_EventCategoryRepository($this->pluginInstance);
+		$eventCategoryRepository = new user_events_Domain_Repository_EventCategoryRepository($this->pluginInstance);
 		return $this->event->getCategories($eventCategoryRepository);
 	}
 }

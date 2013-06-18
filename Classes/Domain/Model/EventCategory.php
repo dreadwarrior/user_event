@@ -1,7 +1,7 @@
 <?php
-require_once t3lib_extMgm::extPath('user_events') . '/Classes/Model/PibaseDomainObject.php';
+require_once t3lib_extMgm::extPath('user_events') . '/Classes/DomainObject/PibaseDomainObject.php';
 
-class user_events_Model_EventCategory extends user_events_Model_PibaseDomainObject {
+class user_events_Domain_Model_EventCategory extends user_events_DomainObject_PibaseDomainObject {
 
 	protected $title = '';
 

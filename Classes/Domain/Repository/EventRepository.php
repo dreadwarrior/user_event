@@ -1,10 +1,10 @@
 <?php
 
-require_once t3lib_extMgm::extPath('user_events') . '/Classes/Model/PibaseRepository.php';
+require_once t3lib_extMgm::extPath('user_events') . 'Classes/Persistence/PibaseRepository.php';
 
-require_once t3lib_extMgm::extPath('user_events') . '/Classes/Model/Event.php';
+require_once t3lib_extMgm::extPath('user_events') . 'Classes/Domain/Model/Event.php';
 
-class user_events_Model_EventRepository extends user_events_Model_PibaseRepository {
+class user_events_Domain_Repository_EventRepository extends user_events_Persistence_PibaseRepository {
 
 	protected $tableName = 'user_events_events';
 
@@ -40,7 +40,7 @@ class user_events_Model_EventRepository extends user_events_Model_PibaseReposito
 	public function getEventById($uid) {
 		$row = $this->getRecord($this->tableName, $uid);
 
-		$event = new user_events_Model_Event($row);
+		$event = new user_events_Domain_Model_Event($row);
 
 		$event->injectContentObject($this->pluginInstance->cObj);
 
@@ -51,7 +51,7 @@ class user_events_Model_EventRepository extends user_events_Model_PibaseReposito
 		$events = array();
 
 		while ($eventRow = $this->database->sql_fetch_assoc($resultRessource)) {
-			$event = new user_events_Model_Event($eventRow);
+			$event = new user_events_Domain_Model_Event($eventRow);
 
 			$event->injectContentObject($this->pluginInstance->cObj);
 

@@ -1,7 +1,7 @@
 <?php
-require_once t3lib_extMgm::extPath('user_events') . '/Classes/Model/PibaseDomainObject.php';
+require_once t3lib_extMgm::extPath('user_events') . '/Classes/DomainObject/PibaseDomainObject.php';
 
-class user_events_Model_Event extends user_events_Model_PibaseDomainObject {
+class user_events_Domain_Model_Event extends user_events_DomainObject_PibaseDomainObject {
 
 	protected $uid = '';
 
@@ -115,7 +115,7 @@ class user_events_Model_Event extends user_events_Model_PibaseDomainObject {
 		return $this->categories;
 	}
 
-	public function getCategories(user_events_Model_EventCategoryRepository $repository) {
+	public function getCategories(user_events_Domain_Repository_EventCategoryRepository $repository) {
 		$categories = $repository->getCategoriesForEvent($this->getUid());
 
 		return $categories;

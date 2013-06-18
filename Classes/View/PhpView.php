@@ -3,6 +3,8 @@ require_once(t3lib_extMgm::extPath('user_events') . '/Classes/View/PibaseViewInt
 
 require_once(t3lib_extMgm::extPath('user_events') . '/Classes/Utility/PibaseMethodsProxy.php');
 
+require_once(t3lib_extMgm::extPath('user_events') . '/Classes/Utility/GeneralUtility.php');
+
 abstract class user_events_View_PhpView extends user_events_Utility_PibaseMethodsProxy implements user_events_View_PibaseViewInterface {
 
 	/**
@@ -17,12 +19,6 @@ abstract class user_events_View_PhpView extends user_events_Utility_PibaseMethod
 	 */
 	protected $cObj;
 
-	/**
-	 *
-	 * @var user_events_View_ViewManagerInterface
-	 */
-	protected $viewManager = NULL;
-
 	protected $viewConf = array();
 
 	/**
@@ -31,12 +27,9 @@ abstract class user_events_View_PhpView extends user_events_Utility_PibaseMethod
 	 */
 	protected $templateVariables = array();
 
-	public function __construct(tslib_pibase $plugin, user_events_View_ViewManagerInterface $viewManager) {
+	public function __construct(tslib_pibase $plugin) {
 		$this->pluginInstance = $plugin;
 		$this->cObj = $this->pluginInstance->cObj;
-		$this->viewManager = $viewManager;
-
-		$this->assignVariables();
 	}
 
 	public function setViewConf(array $conf) {
@@ -47,7 +40,9 @@ abstract class user_events_View_PhpView extends user_events_Utility_PibaseMethod
 		$this->templateVariables[$templateVariableKey] = $templateVariableValue;
 	}
 
-	public final function render($subpartKey = '') {
+	public final function render() {
+		$this->assignVariables();
+
 		extract($this->templateVariables);
 
 		ob_start();
@@ -56,23 +51,39 @@ abstract class user_events_View_PhpView extends user_events_Utility_PibaseMethod
 		require $this->getTemplatePath();
 
 		// @todo: check if this works with TYPO3 output buffering; also try ob_end_flush() if problems arise
-		return ob_end_clean();
+		return ob_get_clean();
 	}
 
 	protected function getTemplatePath() {
 		// 'user_events_View_DetailView'
 		$className = get_class($this);
 		// ['user', 'events', 'View', 'EventDetailView']
-		$classNameParts = explode('_', $classNameParts);
+		$classNameParts = explode('_', $className);
 		// EventDetailView
 		$classNameCanonical = array_pop($classNameParts);
 		// EventDetail
-		$template = str_replace('View', '', $classNameCanonical);
+		$templateUpperCamelCase = str_replace('View', '', $classNameCanonical);
+
+		$templateUnderscored = user_events_Utility_GeneralUtility::camelCaseToLowerCaseUnderscored($templateUpperCamelCase);
+
+		$templatePathParts = explode('_', $templateUnderscored);
+
+		$templatePath = array();
+
+		foreach ($templatePathParts as $templatePathPart) {
+			$templatePath[] = ucfirst($templatePathPart);
+		}
+
+		$template = implode('/', $templatePath);
 
 		$templatePath = t3lib_extMgm::extPath('user_events', '/Resources/Private/Templates/' . $template . '.php');
 
 		return $templatePath;
-		
+
+	}
+
+	final protected function makeBootstrapButtonFromLink($linkMarkup, $additionalClassesSpacePrefixed = '') {
+		return str_replace('<a href=', '<a class="btn'. $additionalClassesSpacePrefixed .'" href=', $linkMarkup);
 	}
 
 	abstract public function assignVariables();

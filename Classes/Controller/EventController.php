@@ -1,7 +1,6 @@
 <?php
 require_once(t3lib_extMgm::extPath('user_events') . '/Classes/Model/EventRepository.php');
 
-require_once(t3lib_extMgm::extPath('user_events') . '/Classes/View/StackedViewManager.php');
 require_once(t3lib_extMgm::extPath('user_events') . '/Classes/View/EventListView.php');
 require_once(t3lib_extMgm::extPath('user_events') . '/Classes/View/EventDetailView.php');
 
@@ -48,12 +47,6 @@ class user_events_EventController extends tslib_pibase {
 
 	/**
 	 *
-	 * @var user_events_View_ViewManagerInterface
-	 */
-	protected $viewManager = NULL;
-
-	/**
-	 *
 	 * @var array
 	 */
 	protected $locations = array();
@@ -71,10 +64,6 @@ class user_events_EventController extends tslib_pibase {
 		$this->pi_loadLL();
 
 		$this->initConfig();
-
-		$templateCode = $this->cObj->fileResource($this->conf['templateFile']);
-
-		$this->viewManager = new user_events_View_StackedViewManager($this->cObj, $templateCode);
 
 		$this->initLocations();
 
@@ -136,7 +125,7 @@ class user_events_EventController extends tslib_pibase {
 	private function getEventList() {
 		$this->viewConf = $this->conf['list.'];
 
-		$eventListView = new user_events_View_EventListView($this, $this->viewManager);
+		$eventListView = new user_events_View_EventListView($this);
 		$eventListView->setViewConf($this->viewConf);
 
 		return $eventListView->render('LIST');
@@ -148,9 +137,9 @@ class user_events_EventController extends tslib_pibase {
 		$eventRepository = new user_events_Model_EventRepository($this);
 		$event = $eventRepository->getEventById($eventUid);
 
-		$eventDetailView = new user_events_View_EventDetailView($this, $this->viewManager);
-		$eventDetailView->setEvent($event);
+		$eventDetailView = new user_events_View_EventDetailView($this);
 		$eventDetailView->setViewConf($this->conf['detail.']);
+		$eventDetailView->setEvent($event);
 
 		return $eventDetailView->render();
 	}

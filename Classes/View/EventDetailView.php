@@ -20,6 +20,7 @@ class user_events_View_EventDetailView extends user_events_View_PhpView {
 
 		$this->assign('cObj', $this->cObj);
 		$this->assign('viewConf', $this->viewConf);
+
 		$this->assign('imageConfiguration', $this->getImageConfiguration());
 
 		$this->assign('event', $this->event);
@@ -34,11 +35,6 @@ class user_events_View_EventDetailView extends user_events_View_PhpView {
 		$GLOBALS['TSFE']->indexedDocTitle = $this->event->getTitle();
 	}
 
-	protected function getLocation() {
-		$locations = $this->pluginInstance->getLocations();
-		return $locations[$this->event->getLocation()];
-	}
-
 	protected function getImageConfiguration() {
 		$conf = $this->viewConf['image.'];
 
@@ -49,13 +45,18 @@ class user_events_View_EventDetailView extends user_events_View_PhpView {
 		return $conf;
 	}
 
-	protected function getDocuments() {
-		return explode(',', $this->event->getDocuments());
+	protected function getLocation() {
+		$locations = $this->pluginInstance->getLocations();
+		return $locations[$this->event->getLocation()];
 	}
 
 	protected function getCategories() {
 		$eventCategoryRepository = new user_events_Model_EventCategoryRepository($this->pluginInstance);
 		return $this->event->getCategories($eventCategoryRepository);
+	}
+
+	protected function getDocuments() {
+		return explode(',', $this->event->getDocuments());
 	}
 }
 ?>

@@ -1,5 +1,5 @@
 <div class="span8">
-	<div class="user-events-date"><?php echo $event->getDateStdWrapped($viewConf['dateStdWrap.'] ?> <?php echo $event->getTimeStdWrapped($viewConf['timeStdWrap.']) ?></div>
+	<div class="user-events-date"><?php echo $event->getDateStdWrapped($viewConf['dateStdWrap.']) ?> <?php echo $event->getTimeStdWrapped($viewConf['timeStdWrap.']) ?></div>
 
 	<div class="user-events-title">
 		<?php if ($event->hasSubtitle()): ?>
@@ -16,12 +16,12 @@
 	<?php echo $location['address'] ?><br /><?php echo $location['zip'] ?> <?php echo $location['city'] ?>
 
 	<?php if ($event->getNumberOfCategories() > 0): ?>
-	<div class="user-events-category">
-		<?php foreach ($categories as $i => $category): ?>
-			<?php echo ($i > 0 ? ', ' : '') ?>
-			<?php echo $category->getTitleStdWrapped($viewConf['categoryTitleStdWrap.'] ?>
-		<?php endforeach; ?>
-	</div>
+		<div class="user-events-category">
+			<?php foreach ($categories as $i => $category): ?>
+				<?php echo ($i > 0 ? ', ' : '') ?>
+				<?php echo $category->getTitleStdWrapped($viewConf['categoryTitleStdWrap.']) ?>
+			<?php endforeach; ?>
+		</div>
 	<?php endif; ?>
 
 	<div class="user-events-bodytext-container">
@@ -38,7 +38,6 @@
 					$cObj->http_makelinks($event->getLinks(), $viewConf['links.']),
 					$viewConf['linksStdWrap.']
 				) ?>
-				<?php echo $cObj->http_makelinks($event->getLinks(), $viewConf['links.']) ?>
 		</div>
 	<?php endif; ?>
 
@@ -53,7 +52,7 @@
 	<?php endif; ?>
 	<div class="user-events-detaillink">
 		<br />
-		<?php 
+		<?php
 			$this->makeBootstrapButtonFromLink(
 				$this->stdWrap($this->getLL('back'), $viewConf['backlinkStdWrap.']),
 				' btn btn-small'

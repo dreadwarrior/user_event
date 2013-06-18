@@ -1,5 +1,5 @@
 <?php
-class user_events_PibaseController extends tslib_pibase {
+class user_events_Core_Controller_PibaseController extends tslib_pibase {
 
 	protected function initialize($typoScriptConfiguration) {
 		$this->conf = $typoScriptConfiguration;

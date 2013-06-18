@@ -1,11 +1,11 @@
 <?php
 require_once t3lib_extMgm::extPath('user_events') . 'Classes/Domain/Repository/EventRepository.php';
 
-require_once t3lib_extMgm::extPath('user_events') . 'Classes/Controller/PibaseController.php';
+require_once t3lib_extMgm::extPath('user_events') . 'Classes/Core/Controller/PibaseController.php';
 require_once t3lib_extMgm::extPath('user_events') . 'Classes/View/EventListView.php';
 require_once t3lib_extMgm::extPath('user_events') . 'Classes/View/EventDetailView.php';
 
-class user_events_EventController extends user_events_PibaseController {
+class user_events_EventController extends user_events_Core_Controller_PibaseController {
 
 	/**
 	 * Same as class name

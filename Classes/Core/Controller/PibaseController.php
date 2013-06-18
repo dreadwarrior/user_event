@@ -28,6 +28,5 @@ class user_events_Core_Controller_PibaseController extends tslib_pibase {
 			}
 		}
 	}
-
 }
 ?>

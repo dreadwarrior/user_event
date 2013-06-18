@@ -59,13 +59,7 @@ class user_events_EventController extends tslib_pibase {
 	 * @return string The content that is displayed on the website
 	 */
 	public function main($content, array $conf) {
-		$this->conf = $conf;
-		$this->pi_setPiVarDefaults();
-		$this->pi_loadLL();
-
-		$this->initConfig();
-
-		$this->initLocations();
+		$this->initialize($conf);
 
 		if (FALSE === isset($this->piVars['showUid'])) {
 			$content = $this->getEventList();
@@ -74,6 +68,16 @@ class user_events_EventController extends tslib_pibase {
 		}
 
 		return $this->pi_wrapInBaseClass($content);
+	}
+
+	protected function initialize($typoScriptConfiguration) {
+		$this->conf = $typoScriptConfiguration;
+		$this->pi_setPiVarDefaults();
+		$this->pi_loadLL();
+
+		$this->initConfig();
+
+		$this->initLocations();
 	}
 
 	protected function initConfig() {

@@ -1,9 +1,9 @@
 <?php
-require_once(t3lib_extMgm::extPath('user_events') . '/Classes/View/PibaseViewInterface.php');
+require_once t3lib_extMgm::extPath('user_events') . '/Classes/View/PibaseViewInterface.php';
 
-require_once(t3lib_extMgm::extPath('user_events') . '/Classes/Utility/PibaseMethodsProxy.php');
+require_once t3lib_extMgm::extPath('user_events') . '/Classes/Utility/PibaseMethodsProxy.php';
 
-require_once(t3lib_extMgm::extPath('user_events') . '/Classes/Utility/GeneralUtility.php');
+require_once t3lib_extMgm::extPath('user_events') . '/Classes/Utility/GeneralUtility.php';
 
 abstract class user_events_View_PhpView extends user_events_Utility_PibaseMethodsProxy implements user_events_View_PibaseViewInterface {
 

@@ -63,18 +63,12 @@ abstract class user_events_View_PhpView extends user_events_Utility_PibaseMethod
 		$classNameCanonical = array_pop($classNameParts);
 		// EventDetail
 		$templateUpperCamelCase = str_replace('View', '', $classNameCanonical);
-
+		// event_detail
 		$templateUnderscored = user_events_Utility_GeneralUtility::camelCaseToLowerCaseUnderscored($templateUpperCamelCase);
-
+		// ['event', 'detail']
 		$templatePathParts = explode('_', $templateUnderscored);
-
-		$templatePath = array();
-
-		foreach ($templatePathParts as $templatePathPart) {
-			$templatePath[] = ucfirst($templatePathPart);
-		}
-
-		$template = implode('/', $templatePath);
+		// 'Event/Detail'
+		$template = implode('/', array_map('ucfirst', $templatePathParts));
 
 		$templatePath = t3lib_extMgm::extPath('user_events', '/Resources/Private/Templates/' . $template . '.php');
 

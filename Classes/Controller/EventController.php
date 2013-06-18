@@ -1,10 +1,11 @@
 <?php
-require_once(t3lib_extMgm::extPath('user_events') . '/Classes/Model/EventRepository.php');
+require_once t3lib_extMgm::extPath('user_events') . '/Classes/Model/EventRepository.php';
 
-require_once(t3lib_extMgm::extPath('user_events') . '/Classes/View/EventListView.php');
-require_once(t3lib_extMgm::extPath('user_events') . '/Classes/View/EventDetailView.php');
+require_once t3lib_extMgm::extPath('user_events') . '/Classes/Controller/PibaseController.php';
+require_once t3lib_extMgm::extPath('user_events') . '/Classes/View/EventListView.php';
+require_once t3lib_extMgm::extPath('user_events') . '/Classes/View/EventDetailView.php';
 
-class user_events_EventController extends tslib_pibase {
+class user_events_EventController extends user_events_PibaseController {
 
 	/**
 	 * Same as class name
@@ -41,6 +42,12 @@ class user_events_EventController extends tslib_pibase {
 
 	/**
 	 *
+	 * @var user_events_View_PibaseViewInterface
+	 */
+	protected $view = NULL;
+
+	/**
+	 *
 	 * @var array
 	 */
 	protected $viewConf = array();
@@ -62,42 +69,24 @@ class user_events_EventController extends tslib_pibase {
 		$this->initialize($conf);
 
 		if (FALSE === isset($this->piVars['showUid'])) {
-			$content = $this->getEventList();
+			$this->actionList();
 		} else {
-			$content = $this->getEventDetail();
+			$this->actionDetail();
 		}
+
+		$content = $this->view->render();
 
 		return $this->pi_wrapInBaseClass($content);
 	}
 
 	protected function initialize($typoScriptConfiguration) {
-		$this->conf = $typoScriptConfiguration;
-		$this->pi_setPiVarDefaults();
-		$this->pi_loadLL();
-
-		$this->initConfig();
+		parent::initialize($typoScriptConfiguration);
 
 		$this->initLocations();
 	}
 
 	protected function initConfig() {
-		// Init and get the flexform data of the plugin
-		$this->pi_initPIflexForm();
-		// Setup our storage array...
-		$this->lConf = array();
-
-		// Assign the flexform data to a local variable for easier access
-		$piFlexForm = $this->cObj->data['pi_flexform'];
-
-		// Traverse the entire array based on the language...
-		// and assign each configuration option to $this->lConf array
-		foreach ($piFlexForm['data'] as $sheet => $data) {
-			foreach ($data as $lang => $value) {
-				foreach ($value as $key => $val) {
-					$this->lConf[$key] = $this->pi_getFFvalue($piFlexForm, $key, $sheet);
-				}
-			}
-		}
+		parent::initConfig();
 
 		if ('' !== $this->lConf['pages']) {
 			$this->conf['pidList'] = $this->lConf['pages'];
@@ -126,26 +115,22 @@ class user_events_EventController extends tslib_pibase {
 		);
 	}
 
-	private function getEventList() {
+	private function actionList() {
 		$this->viewConf = $this->conf['list.'];
 
-		$eventListView = new user_events_View_EventListView($this);
-		$eventListView->setViewConf($this->viewConf);
-
-		return $eventListView->render('LIST');
+		$this->view = new user_events_View_EventListView($this);
+		$this->view->setViewConf($this->viewConf);
 	}
 
-	protected function getEventDetail() {
+	protected function actionDetail() {
 		$eventUid = intval($this->piVars['showUid']);
 
 		$eventRepository = new user_events_Model_EventRepository($this);
 		$event = $eventRepository->getEventById($eventUid);
 
-		$eventDetailView = new user_events_View_EventDetailView($this);
-		$eventDetailView->setViewConf($this->conf['detail.']);
-		$eventDetailView->setEvent($event);
-
-		return $eventDetailView->render();
+		$this->view = new user_events_View_EventDetailView($this);
+		$this->view->setViewConf($this->conf['detail.']);
+		$this->view->setEvent($event);
 	}
 
 	public function getLocations() {

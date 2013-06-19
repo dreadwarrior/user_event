@@ -1,9 +1,7 @@
 <?php
-require_once t3lib_extMgm::extPath('user_events') . '/Classes/Core/View/PibaseViewInterface.php';
-
-require_once t3lib_extMgm::extPath('user_events') . '/Classes/Utility/PibaseMethodsProxy.php';
-
-require_once t3lib_extMgm::extPath('user_events') . '/Classes/Utility/GeneralUtility.php';
+require_once t3lib_extMgm::extPath('user_events', '/Classes/Core/View/PibaseViewInterface.php');
+require_once t3lib_extMgm::extPath('user_events', '/Classes/Utility/PibaseMethodsProxy.php');
+require_once t3lib_extMgm::extPath('user_events', '/Classes/Utility/GeneralUtility.php');
 
 abstract class user_events_Core_View_PhpView extends user_events_Utility_PibaseMethodsProxy implements user_events_Core_View_PibaseViewInterface {
 
@@ -73,11 +71,6 @@ abstract class user_events_Core_View_PhpView extends user_events_Utility_PibaseM
 		$templatePath = t3lib_extMgm::extPath('user_events', '/Resources/Private/Templates/' . $template . '.php');
 
 		return $templatePath;
-
-	}
-
-	final protected function makeBootstrapButtonFromLink($linkMarkup, $additionalClassesSpacePrefixed = '') {
-		return str_replace('<a href=', '<a class="btn'. $additionalClassesSpacePrefixed .'" href=', $linkMarkup);
 	}
 
 	abstract public function assignVariables();

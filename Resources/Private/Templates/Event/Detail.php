@@ -13,7 +13,7 @@
 		</hgroup>
 		<?php endif; ?>
 	</div>
-	<?php echo $location['address'] ?><br /><?php echo $location['zip'] ?> <?php echo $location['city'] ?>
+	<?php echo $this->event->getLocationProperty($locations, 'address') ?><br /><?php echo $this->event->getLocationProperty($locations, 'zip') ?> <?php echo $this->event->getLocationProperty($locations, 'city') ?>
 
 	<?php if ($event->getNumberOfCategories() > 0): ?>
 		<div class="user-events-category">
@@ -27,7 +27,7 @@
 	<div class="user-events-bodytext-container">
 		<div class="user-events-bodytext"><?php $event->getBodytextStdWrapped($viewConf['bodytextStdWrap.']) ?></div>
 		<ul class="thumbnails">
-			<li class="span3"><?php echo $cObj->cImage('uploads/tx_userevents/' . $event->getImage(), $imageConfiguration) ?></li>
+			<li class="span3"><?php echo $cObj->cImage('uploads/tx_userevents/' . $event->getImage(), $event->getImageConfiguration($viewConf['image.'])) ?></li>
 		</ul>
 	</div>
 	<hr />

@@ -32,7 +32,7 @@
 					<h3><?php echo $event->getSubtitleHtmlEscaped() ?></h3>
 				</hgroup>
 			</div>
-			<?php echo $locations[$event->getLocation()]['city'] ?>
+			<?php echo $event->getLocationProperty($locations, 'city') ?>
 			<div class="user-events-shorttext"><?php echo $event->getShorttextStdWrapped($viewConf['shorttextStdWrap.']) ?></div>
 			<div class="user-events-detaillink"><?php echo $this->createDetailViewButton($event->getUid(), ' btn-primary') ?></div>
 		</div>

@@ -21,10 +21,8 @@ class user_events_View_EventDetailView extends user_events_Core_View_PhpView {
 		$this->assign('cObj', $this->cObj);
 		$this->assign('viewConf', $this->viewConf);
 
-		$this->assign('imageConfiguration', $this->getImageConfiguration());
-
 		$this->assign('event', $this->event);
-		$this->assign('location', $this->getLocation());
+		$this->assign('locations', $this->pluginInstance->getLocations());
 		$this->assign('categories', $this->getCategories());
 		$this->assign('documents', $this->event->getDocumentsArray());
 	}
@@ -33,21 +31,6 @@ class user_events_View_EventDetailView extends user_events_Core_View_PhpView {
 		// @note: titles are htmlspecialchars()'ed automatically
 		$GLOBALS['TSFE']->page['title'] = $this->event->getTitle();
 		$GLOBALS['TSFE']->indexedDocTitle = $this->event->getTitle();
-	}
-
-	protected function getImageConfiguration() {
-		$conf = $this->viewConf['image.'];
-
-		// override alt + title text configuration
-		$conf['altText'] = $this->event->getAlttext();
-		$conf['titleText'] = $this->event->getTitletext();
-
-		return $conf;
-	}
-
-	protected function getLocation() {
-		$locations = $this->pluginInstance->getLocations();
-		return $locations[$this->event->getLocation()];
 	}
 
 	protected function getCategories() {

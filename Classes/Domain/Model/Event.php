@@ -103,6 +103,14 @@ class user_events_Domain_Model_Event extends user_events_DomainObject_PibaseDoma
 		return $this->image;
 	}
 
+	public function getImageConfiguration($conf) {
+		// override alt + title text configuration
+		$conf['altText'] = $this->getAlttext();
+		$conf['titleText'] = $this->getTitletext();
+
+		return $conf;
+	}
+
 	public function getAlttext() {
 		return $this->alttext;
 	}
@@ -123,6 +131,10 @@ class user_events_Domain_Model_Event extends user_events_DomainObject_PibaseDoma
 
 	public function getLocation() {
 		return $this->location;
+	}
+
+	public function getLocationProperty($locations, $property) {
+		return $locations[$this->location][$property];
 	}
 
 	public function getLinks() {

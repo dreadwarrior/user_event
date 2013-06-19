@@ -28,13 +28,13 @@
 			<div class="user-events-date"><?php echo $event->getDateStdWrapped($viewConf['dateStdWrap.']) ?> <?php echo $event->getTimeStdWrapped($viewConf['timeStdWrap.']) ?></div>
 			<div class="user-events-title">
 				<hgroup>
-					<h2><?php echo $this->createDetailViewLink($event->getUid(), $event->getTitleHtmlEscaped()) ?></h2>
+					<h2><?php echo $helper->renderDetailViewLink($event->getUid(), $event->getTitleHtmlEscaped()) ?></h2>
 					<h3><?php echo $event->getSubtitleHtmlEscaped() ?></h3>
 				</hgroup>
 			</div>
 			<?php echo $event->getLocationProperty($locations, 'city') ?>
 			<div class="user-events-shorttext"><?php echo $event->getShorttextStdWrapped($viewConf['shorttextStdWrap.']) ?></div>
-			<div class="user-events-detaillink"><?php echo $this->createDetailViewButton($event->getUid(), ' btn-primary') ?></div>
+			<div class="user-events-detaillink"><?php echo $helper->renderDetailViewButton($event->getUid(), ' btn-primary') ?></div>
 		</div>
 		<hr />
 	<?php endforeach ?>

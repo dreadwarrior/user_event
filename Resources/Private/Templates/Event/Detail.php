@@ -53,7 +53,7 @@
 	<div class="user-events-detaillink">
 		<br />
 		<?php
-			$this->makeBootstrapButtonFromLink(
+			$helper->renderBootstrapButtonFromLink(
 				$this->stdWrap($this->getLL('back'), $viewConf['backlinkStdWrap.']),
 				' btn btn-small'
 			)

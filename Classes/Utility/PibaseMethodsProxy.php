@@ -1,6 +1,5 @@
 <?php
-
-require_once t3lib_extMgm::extPath('user_events') . '/Classes/Utility/PibaseMethodsProxyInterface.php';
+require_once t3lib_extMgm::extPath('user_events', 'Classes/Utility/PibaseMethodsProxyInterface.php');
 
 abstract class user_events_Utility_PibaseMethodsProxy implements user_events_Utility_PibaseMethodsProxyInterface {
 

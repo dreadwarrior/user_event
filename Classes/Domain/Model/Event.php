@@ -55,8 +55,16 @@ class user_events_Domain_Model_Event extends user_events_DomainObject_PibaseDoma
 		return $this->title;
 	}
 
+	public function getDate() {
+		return $this->eventdate;
+	}
+
 	public function getDateStdWrapped($conf) {
 		return $this->stdWrap($this->eventdate, $conf);
+	}
+
+	public function getTime() {
+		return $this->eventdate;
 	}
 
 	public function getTimeStdWrapped($conf) {
@@ -73,6 +81,10 @@ class user_events_Domain_Model_Event extends user_events_DomainObject_PibaseDoma
 
 	public function getTitleHtmlEscaped() {
 		return htmlspecialchars($this->title);
+	}
+
+	public function getSubtitle() {
+		return $this->subtitle;
 	}
 
 	public function getSubtitleStdWrapped($conf) {

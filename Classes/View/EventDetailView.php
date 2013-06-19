@@ -18,8 +18,11 @@ class user_events_View_EventDetailView extends user_events_Core_View_PhpView {
 	public function assignVariables() {
 		$this->modifyPageTitle();
 
+		$eventViewHelper = new user_events_ViewHelpers_EventViewHelper($this->pluginInstance, $this->cObj);
+
 		$this->assign('cObj', $this->cObj);
 		$this->assign('viewConf', $this->viewConf);
+		$this->assign('helper', $eventViewHelper);
 
 		$this->assign('event', $this->event);
 		$this->assign('locations', $this->pluginInstance->getLocations());

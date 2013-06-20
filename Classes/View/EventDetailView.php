@@ -19,6 +19,7 @@ class user_events_View_EventDetailView extends user_events_Core_View_PhpView {
 		$this->modifyPageTitle();
 
 		$eventViewHelper = new user_events_ViewHelpers_EventViewHelper($this->pluginInstance, $this->cObj);
+		$eventCategoryRepository = new user_events_Domain_Repository_EventCategoryRepository($this->pluginInstance);
 
 		$this->assign('cObj', $this->cObj);
 		$this->assign('viewConf', $this->viewConf);
@@ -26,7 +27,7 @@ class user_events_View_EventDetailView extends user_events_Core_View_PhpView {
 
 		$this->assign('event', $this->event);
 		$this->assign('locations', $this->pluginInstance->getLocations());
-		$this->assign('categories', $this->getCategories());
+		$this->assign('categories', $eventCategoryRepository->getCategoriesForEvent($this->event));
 		$this->assign('documents', $this->event->getDocumentsArray());
 	}
 
@@ -34,11 +35,6 @@ class user_events_View_EventDetailView extends user_events_Core_View_PhpView {
 		// @note: titles are htmlspecialchars()'ed automatically
 		$GLOBALS['TSFE']->page['title'] = $this->event->getTitle();
 		$GLOBALS['TSFE']->indexedDocTitle = $this->event->getTitle();
-	}
-
-	protected function getCategories() {
-		$eventCategoryRepository = new user_events_Domain_Repository_EventCategoryRepository($this->pluginInstance);
-		return $this->event->getCategories($eventCategoryRepository);
 	}
 }
 ?>

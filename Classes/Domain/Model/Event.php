@@ -135,12 +135,6 @@ class user_events_Domain_Model_Event extends user_events_DomainObject_PibaseDoma
 		return $this->categories;
 	}
 
-	public function getCategories(user_events_Domain_Repository_EventCategoryRepository $repository) {
-		$categories = $repository->getCategoriesForEvent($this->getUid());
-
-		return $categories;
-	}
-
 	public function getLocation() {
 		return $this->location;
 	}

@@ -7,19 +7,19 @@ class user_events_Domain_Repository_EventCategoryRepository extends user_events_
 
 	protected $tableName = 'user_events_categories';
 
-	public function getCategoriesForEvent($eventUid) {
+	public function getCategoriesForEvent(user_events_Domain_Model_Event $event) {
 		$resultRessource = $this->database->exec_SELECT_mm_query(
 				$this->tableName . '.title',
 				'user_events_events',
 				'user_events_events_categories_mm',
 				$this->tableName,
-				' AND user_events_events.uid = ' . $eventUid,
+				' AND user_events_events.uid = ' . $event->getUid(),
 				'', // group by
 				$this->tableName . '.title', // order by
 				''
 		);
 
-		return $this->hydrate($resultRessource);		
+		return $this->hydrate($resultRessource);
 	}
 
 	protected function setPluginInternalConfigurationArray() {
@@ -28,7 +28,7 @@ class user_events_Domain_Repository_EventCategoryRepository extends user_events_
 
 	protected function hydrate($resultRessource) {
 		$categories = array();
-		
+
 		while ($row = $this->database->sql_fetch_assoc($resultRessource)) {
 			$category = new user_events_Domain_Model_EventCategory($row);
 

@@ -25,6 +25,12 @@ abstract class user_events_Core_View_PhpView extends user_events_Utility_PibaseM
 	 */
 	protected $templateVariables = array();
 
+	/**
+	 *
+	 * @var string
+	 */
+	protected $templatePathTemplate = 'Resources/Private/Templates/%template%.php';
+
 	public function __construct(tslib_pibase $plugin) {
 		$this->pluginInstance = $plugin;
 		$this->cObj = $this->pluginInstance->cObj;
@@ -53,12 +59,26 @@ abstract class user_events_Core_View_PhpView extends user_events_Utility_PibaseM
 	}
 
 	protected function getTemplatePath() {
-		// 'user_events_View_DetailView'
-		$className = get_class($this);
-		// ['user', 'events', 'View', 'EventDetailView']
-		$classNameParts = explode('_', $className);
-		// EventDetailView
-		$classNameCanonical = array_pop($classNameParts);
+		$templatePathSuffix = $this->getTemplatePathSuffix();
+
+		$templatePath = t3lib_extMgm::extPath('user_events', $templatePathSuffix);
+
+		return $templatePath;
+	}
+
+	protected function getTemplatePathSuffix() {
+		$template = $this->getTemplateByViewInstanceName();
+
+		$templatePathSuffix = strtr($this->templatePathTemplate, array(
+			'%template%' => $template
+		));
+
+		return $templatePathSuffix;
+	}
+
+	protected function getTemplateByViewInstanceName() {
+		$classNameCanonical = $this->getViewInstanceCanonicalName();
+
 		// EventDetail
 		$templateUpperCamelCase = str_replace('View', '', $classNameCanonical);
 		// event_detail
@@ -68,9 +88,19 @@ abstract class user_events_Core_View_PhpView extends user_events_Utility_PibaseM
 		// 'Event/Detail'
 		$template = implode('/', array_map('ucfirst', $templatePathParts));
 
-		$templatePath = t3lib_extMgm::extPath('user_events', '/Resources/Private/Templates/' . $template . '.php');
+		return $template;
+	}
 
-		return $templatePath;
+	protected function getViewInstanceCanonicalName() {
+		// 'user_events_View_DetailView'
+		$className = get_class($this);
+		// ['user', 'events', 'View', 'EventDetailView']
+		$classNameParts = explode('_', $className);
+		// EventDetailView
+		$classNameCanonical = array_pop($classNameParts);
+
+		return $classNameCanonical;
+
 	}
 
 	abstract public function assignVariables();
